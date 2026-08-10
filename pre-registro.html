@@ -196,12 +196,11 @@ body {
 
 <nav class="menu-lateral">
 
-    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+    <div class="menu-btn" id="menuBtn">☰</div>
 
     <div class="indicador-menu"></div>
 
-    <div class="menu-opciones">
-
+    <div class="menu-opciones" id="menuOpciones">
         <a href="inicio.html">INICIO</a>
         <a href="pre-registro.html">PRE-REGISTRO</a>
         <a href="#">PATROCINADORES</a>
@@ -210,24 +209,39 @@ body {
 
         <a href="https://www.twitch.tv/chef_urbano_ens" target="_blank">TWITCH</a>
         <a href="https://www.facebook.com/ChefUrbanoEns" target="_blank">FACEBOOK</a>
-
     </div>
 
 </nav>
 
-<div class="contenedor-formulario">
-
-<iframe 
-src="https://docs.google.com/forms/d/e/1FAIpQLSewiz83ydxm6zkYIURqJVnoYzVtWIXDypHK04gYjXGf1C0wgA/viewform?embedded=true">
-Cargando…
-</iframe>
-
-</div>
+<main class="contenido"></main>
 
 <script>
-function toggleMenu() {
-    document.querySelector(".menu-opciones").classList.toggle("activo");
-}
+document.addEventListener("DOMContentLoaded", function() {
+
+    const menu = document.getElementById("menuOpciones");
+    const btn = document.getElementById("menuBtn");
+
+    // ☰ abrir/cerrar
+    btn.addEventListener("click", function(e) {
+        e.stopPropagation();
+        menu.classList.toggle("activo");
+    });
+
+    // cerrar al tocar opción
+    document.querySelectorAll("#menuOpciones a").forEach(link => {
+        link.addEventListener("click", function() {
+            menu.classList.remove("activo");
+        });
+    });
+
+    // cerrar al tocar fuera
+    document.addEventListener("click", function(e) {
+        if (!menu.contains(e.target) && !btn.contains(e.target)) {
+            menu.classList.remove("activo");
+        }
+    });
+
+});
 </script>
 
 </body>
