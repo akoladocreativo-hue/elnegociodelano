@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Transmisión</title>
+
+<style>
+
+@font-face {
+    font-family: "Sorren";
+    src: url("Sorren-Bold 400.otf") format("opentype");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    overflow: hidden;
+    background-image: url("transmisión.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: Arial, sans-serif;
+}
+
+/* =========================
+   MENÚ LATERAL (IGUAL)
+========================= */
+
+.menu-lateral {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 65px;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.88);
+    border-right: 2px solid #ffba00;
+    z-index: 100;
+    overflow: hidden;
+    transition: width 0.35s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.menu-lateral:hover {
+    width: 280px;
+}
+
+.indicador-menu {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 23px;
+    height: 2px;
+    background-color: #ffba00;
+}
+
+.indicador-menu::before,
+.indicador-menu::after {
+    content: "";
+    position: absolute;
+    width: 23px;
+    height: 2px;
+    background-color: #ffba00;
+    left: 0;
+}
+
+.indicador-menu::before { top: -7px; }
+.indicador-menu::after { top: 7px; }
+
+.menu-lateral:hover .indicador-menu {
+    opacity: 0;
+}
+
+.menu-opciones {
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: 0.3s;
+}
+
+.menu-lateral:hover .menu-opciones {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.menu-opciones a {
+    display: block;
+    padding: 18px 35px;
+    text-decoration: none;
+    color: white;
+    font-family: "Sorren", Arial, sans-serif;
+    font-size: 22px;
+}
+
+.menu-opciones a:hover {
+    color: #000;
+    background-color: #ffba00;
+}
+
+/* =========================
+   STREAM TWITCH
+========================= */
+
+.contenedor-stream {
+    position: absolute;
+    top: 50%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    width: 65%;
+    height: 80%;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(0,0,0,0.6);
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- MENÚ -->
+<nav class="menu-lateral">
+    <div class="indicador-menu"></div>
+
+    <div class="menu-opciones">
+        <a href="inicio.html">INICIO</a>
+        <a href="preregistro.html">PRE-REGISTRO</a>
+        <a href="#">PATROCINADORES</a>
+        <a href="#">PELEADORES</a>
+        <a href="#">CONTÁCTANOS</a>
+        <a href="transmision.html">TRANSMISIÓN EN VIVO</a>
+    </div>
+</nav>
+
+<!-- TWITCH -->
+<div class="contenedor-stream">
+    <iframe
+        src="https://player.twitch.tv/?channel=chef_urbano_ens&parent=127.0.0.1"
+        width="100%"
+        height="100%"
+        allowfullscreen>
+    </iframe>
+</div>
+
+</body>
+</html>

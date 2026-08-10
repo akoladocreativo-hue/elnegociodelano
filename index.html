@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Inicio</title>
+
+    <style>
+
+        @font-face {
+            font-family: "Brunson";
+            src: url("Brunson.ttf") format("truetype");
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            background-image: url("fondo.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .boton-entrar {
+            background-color: #ffba00;
+
+            padding: 22px 70px;
+
+            border-radius: 25px;
+
+            text-decoration: none;
+
+            color: #000000;
+
+            font-family: "Brunson", sans-serif;
+            font-size: 36px;
+
+            letter-spacing: 2px;
+
+            cursor: pointer;
+
+            transition: transform 0.2s ease;
+        }
+
+        .boton-entrar:hover {
+            transform: scale(1.05);
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <a href="inicio.html" class="boton-entrar">
+        ENTRAR
+    </a>
+
+</body>
+</html>

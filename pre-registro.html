@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Pre-registro</title>
+
+    <style>
+
+        @font-face {
+            font-family: "Sorren";
+            src: url("Sorren-Bold 400.otf") format("opentype");
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+
+            min-height: 100vh;
+
+            overflow: hidden;
+
+            background-image: url("fondo-preregistro.png");
+
+            background-size: cover;
+
+            background-position: center;
+
+            background-repeat: no-repeat;
+
+            font-family: Arial, sans-serif;
+        }
+
+
+        /* =========================
+           MENÚ LATERAL
+        ========================== */
+
+        .menu-lateral {
+
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 65px;
+            height: 100vh;
+
+            background-color: rgba(0, 0, 0, 0.88);
+
+            border-right: 2px solid #ffba00;
+
+            z-index: 100;
+
+            overflow: hidden;
+
+            transition: width 0.35s ease;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+        }
+
+
+        .menu-lateral:hover {
+
+            width: 280px;
+
+        }
+
+
+        /* =========================
+           ICONO DEL MENÚ
+        ========================== */
+
+        .indicador-menu {
+
+            position: absolute;
+
+            right: 20px;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            width: 23px;
+            height: 2px;
+
+            background-color: #ffba00;
+
+            transition: opacity 0.2s ease;
+        }
+
+
+        .indicador-menu::before,
+        .indicador-menu::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 23px;
+            height: 2px;
+
+            background-color: #ffba00;
+
+            left: 0;
+        }
+
+
+        .indicador-menu::before {
+            top: -7px;
+        }
+
+
+        .indicador-menu::after {
+            top: 7px;
+        }
+
+
+        .menu-lateral:hover .indicador-menu {
+
+            opacity: 0;
+
+        }
+
+
+        /* =========================
+           OPCIONES
+        ========================== */
+
+        .menu-opciones {
+
+            width: 280px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 10px;
+
+            opacity: 0;
+
+            transform: translateX(-30px);
+
+            transition:
+                opacity 0.3s ease,
+                transform 0.3s ease;
+        }
+
+
+        .menu-lateral:hover .menu-opciones {
+
+            opacity: 1;
+
+            transform: translateX(0);
+
+        }
+
+
+        .menu-opciones a {
+
+            position: relative;
+
+            display: block;
+
+            width: 100%;
+
+            padding: 18px 35px;
+
+            text-decoration: none;
+
+            color: white;
+
+            font-family: "Sorren", Arial, sans-serif;
+
+            font-size: 22px;
+
+            letter-spacing: 1px;
+
+            transition:
+                color 0.25s ease,
+                background-color 0.25s ease,
+                padding-left 0.25s ease;
+        }
+
+
+        .menu-opciones a:hover {
+
+            color: #000000;
+
+            background-color: #ffba00;
+
+            padding-left: 45px;
+
+        }
+
+
+        .menu-opciones a::before {
+
+            content: "";
+
+            position: absolute;
+
+            left: 18px;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            width: 6px;
+            height: 6px;
+
+            background-color: #ffba00;
+
+            border-radius: 50%;
+        }
+
+
+        .menu-opciones a:hover::before {
+
+            background-color: #000000;
+
+        }
+
+
+        /* =========================
+           OPCIÓN ACTUAL
+        ========================== */
+
+        .menu-opciones .activo {
+
+            color: #000000;
+
+            background-color: #ffba00;
+
+        }
+
+
+        .menu-opciones .activo::before {
+
+            background-color: #000000;
+
+        }
+
+    /* =========================
+   FORMULARIO GOOGLE
+========================= */
+
+.contenedor-formulario {
+
+    position: absolute;
+
+    top: 50%;
+    left: 25%;
+
+    transform: translate(-50%, -50%);
+
+    width: 30%;
+    height: 85%;
+
+    background-color: transparent;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    /* sombra suave para separar del fondo */
+    box-shadow: 0 0 30px rgba(0,0,0,0.6);
+
+}
+
+
+/* OPCIONAL: suaviza bordes del iframe */
+.contenedor-formulario iframe {
+
+    border-radius: 20px;
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+    <nav class="menu-lateral">
+
+        <div class="indicador-menu"></div>
+
+        <div class="menu-opciones">
+
+            <a href="inicio.html">
+                INICIO
+            </a>
+
+            <a
+                href="preregistro.html"
+                class="activo"
+            >
+                PRE-REGISTRO
+            </a>
+
+            <a href="#">
+                PATROCINADORES
+            </a>
+
+            <a href="#">
+                PELEADORES
+            </a>
+
+            <a href="#">
+                CONTÁCTANOS
+            </a>
+
+            <a href="transmisión.html">
+                TRANSMISIÓN EN VIVO
+            </a>
+
+        </div>
+
+    </nav>
+
+<div class="contenedor-formulario">
+
+    <iframe 
+        src="https://docs.google.com/forms/d/e/1FAIpQLSewiz83ydxm6zkYIURqJVnoYzVtWIXDypHK04gYjXGf1C0wgA/viewform?usp=header/viewform?embedded=true"
+        width="100%"
+        height="100%"
+        frameborder="0"
+        marginheight="0"
+        marginwidth="0"
+    >
+        Cargando…
+    </iframe>
+
+</div>
+
+
+</body>
+
+</html>
