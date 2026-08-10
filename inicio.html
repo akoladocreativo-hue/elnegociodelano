@@ -210,6 +210,13 @@ body {
 function toggleMenu() {
     document.querySelector(".menu-opciones").classList.toggle("activo");
 }
+
+// 🔥 CERRAR MENÚ AL HACER CLICK EN UNA OPCIÓN
+document.querySelectorAll(".menu-opciones a").forEach(link => {
+    link.addEventListener("click", () => {
+        document.querySelector(".menu-opciones").classList.remove("activo");
+    });
+});
 </script>
 
 </body>
