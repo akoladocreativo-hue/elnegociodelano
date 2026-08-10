@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Inicio</title>
 
     <style>
@@ -19,8 +18,7 @@
             box-sizing: border-box;
         }
 
-        html,
-        body {
+        html, body {
             width: 100%;
             height: 100%;
         }
@@ -38,27 +36,46 @@
 
         .boton-entrar {
             background-color: #ffba00;
-
             padding: 22px 70px;
-
             border-radius: 25px;
-
             text-decoration: none;
-
             color: #000000;
 
             font-family: "Brunson", sans-serif;
             font-size: 36px;
-
             letter-spacing: 2px;
 
             cursor: pointer;
 
-            transition: transform 0.2s ease;
+            transition: 
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
         }
 
         .boton-entrar:hover {
             transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+        }
+
+        /* 📱 MODO CELULAR */
+        @media (max-width: 768px) {
+
+            .boton-entrar {
+                padding: 18px 40px;
+                font-size: 24px;
+                border-radius: 18px;
+            }
+
+        }
+
+        /* 📱 CELULARES MUY PEQUEÑOS */
+        @media (max-width: 400px) {
+
+            .boton-entrar {
+                padding: 15px 30px;
+                font-size: 20px;
+            }
+
         }
 
     </style>
