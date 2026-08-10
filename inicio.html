@@ -56,7 +56,6 @@ body {
     width: 280px;
 }
 
-/* Indicador */
 .indicador-menu {
     position: absolute;
     right: 20px;
@@ -74,17 +73,20 @@ body {
     width: 23px;
     height: 2px;
     background-color: #ffba00;
+    left: 0;
 }
 
 .indicador-menu::before { top: -7px; }
 .indicador-menu::after { top: 7px; }
 
-/* Opciones */
+.menu-lateral:hover .indicador-menu {
+    opacity: 0;
+}
+
+/* OPCIONES */
+
 .menu-opciones {
     width: 280px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
     opacity: 0;
     transform: translateX(-30px);
     transition: 0.3s;
@@ -100,33 +102,35 @@ body {
     padding: 18px 35px;
     text-decoration: none;
     color: white;
-    font-family: "Sorren";
+    font-family: "Sorren", Arial, sans-serif;
     font-size: 22px;
 }
 
 .menu-opciones a:hover {
-    background-color: #ffba00;
     color: black;
+    background-color: #ffba00;
 }
 
 /* CONTENIDO */
+
 .contenido {
     width: 100%;
     height: 100vh;
 }
 
-/* ===== BOTÓN MOBILE ===== */
+/* BOTÓN MÓVIL */
+
 .menu-btn {
     display: none;
-    position: absolute;
-    top: 15px;
-    left: 20px;
     font-size: 28px;
     color: #ffba00;
+    padding: 15px;
     cursor: pointer;
+    z-index: 1000;
 }
 
-/* ===== RESPONSIVE ===== */
+/* ===== MÓVIL ===== */
+
 @media (max-width: 768px) {
 
     .menu-lateral {
@@ -134,6 +138,8 @@ body {
         height: 60px;
         flex-direction: row;
         align-items: center;
+        justify-content: flex-start;
+        overflow: visible;
     }
 
     .menu-btn {
@@ -150,8 +156,12 @@ body {
         left: 0;
         width: 100%;
         background: rgba(0,0,0,0.95);
-        transform: translateY(-100%);
+
+        transform: translateY(-120%);
+        transition: transform 0.3s ease;
+
         opacity: 1;
+        z-index: 999;
     }
 
     .menu-opciones.activo {
@@ -163,22 +173,24 @@ body {
         font-size: 18px;
     }
 
+    .contenido {
+        padding-top: 60px;
+    }
 }
 
 </style>
-
 </head>
 
 <body>
 
 <nav class="menu-lateral">
 
+    <!-- BOTÓN ☰ -->
     <div class="menu-btn" onclick="toggleMenu()">☰</div>
 
     <div class="indicador-menu"></div>
 
     <div class="menu-opciones">
-
         <a href="inicio.html">INICIO</a>
         <a href="pre-registro.html">PRE-REGISTRO</a>
         <a href="#">PATROCINADORES</a>
@@ -187,12 +199,12 @@ body {
 
         <a href="https://www.twitch.tv/chef_urbano_ens" target="_blank">TWITCH</a>
         <a href="https://www.facebook.com/ChefUrbanoEns" target="_blank">FACEBOOK</a>
-
     </div>
 
 </nav>
 
-<main class="contenido"></main>
+<main class="contenido">
+</main>
 
 <script>
 function toggleMenu() {
