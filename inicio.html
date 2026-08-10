@@ -207,14 +207,17 @@ body {
 </main>
 
 <script>
+const menu = document.querySelector(".menu-opciones");
+
+// ABRIR / CERRAR con ☰
 function toggleMenu() {
-    document.querySelector(".menu-opciones").classList.toggle("activo");
+    menu.classList.toggle("activo");
 }
 
-// 🔥 CERRAR MENÚ AL HACER CLICK EN UNA OPCIÓN
+// CERRAR al tocar cualquier opción
 document.querySelectorAll(".menu-opciones a").forEach(link => {
     link.addEventListener("click", () => {
-        document.querySelector(".menu-opciones").classList.remove("activo");
+        menu.classList.remove("activo");
     });
 });
 </script>
