@@ -185,46 +185,53 @@ body {
 
 <nav class="menu-lateral">
 
- <!-- BOTÓN ☰ -->
-<div class="menu-btn" id="menuBtn">☰</div>
+    <div class="menu-btn" id="menuBtn">☰</div>
 
-<div class="indicador-menu"></div>
+    <div class="indicador-menu"></div>
 
-<div class="menu-opciones" id="menuOpciones">
-    <a href="inicio.html">INICIO</a>
-    <a href="pre-registro.html">PRE-REGISTRO</a>
-    <a href="#">PATROCINADORES</a>
-    <a href="#">PELEADORES</a>
-    <a href="#">CONTÁCTANOS</a>
+    <div class="menu-opciones" id="menuOpciones">
+        <a href="inicio.html">INICIO</a>
+        <a href="pre-registro.html">PRE-REGISTRO</a>
+        <a href="#">PATROCINADORES</a>
+        <a href="#">PELEADORES</a>
+        <a href="#">CONTÁCTANOS</a>
 
-    <a href="https://www.twitch.tv/chef_urbano_ens" target="_blank">TWITCH</a>
-    <a href="https://www.facebook.com/ChefUrbanoEns" target="_blank">FACEBOOK</a>
-</div>
+        <a href="https://www.twitch.tv/chef_urbano_ens" target="_blank">TWITCH</a>
+        <a href="https://www.facebook.com/ChefUrbanoEns" target="_blank">FACEBOOK</a>
+    </div>
+
+</nav>
+
+<main class="contenido"></main>
 
 <script>
-// ELEMENTOS
-const menu = document.getElementById("menuOpciones");
-const btn = document.getElementById("menuBtn");
+document.addEventListener("DOMContentLoaded", function() {
 
-// ABRIR / CERRAR CON ☰
-btn.addEventListener("click", function(e) {
-    e.stopPropagation(); // 🔥 evita conflictos
-    menu.classList.toggle("activo");
-});
+    const menu = document.getElementById("menuOpciones");
+    const btn = document.getElementById("menuBtn");
 
-// CERRAR AL TOCAR UNA OPCIÓN
-document.querySelectorAll("#menuOpciones a").forEach(link => {
-    link.addEventListener("click", function() {
-        menu.classList.remove("activo");
+    // ☰ abrir/cerrar
+    btn.addEventListener("click", function(e) {
+        e.stopPropagation();
+        menu.classList.toggle("activo");
     });
-});
 
-// CERRAR SI TOCAS FUERA DEL MENÚ
-document.addEventListener("click", function(e) {
-    if (!menu.contains(e.target) && !btn.contains(e.target)) {
-        menu.classList.remove("activo");
-    }
+    // cerrar al tocar opción
+    document.querySelectorAll("#menuOpciones a").forEach(link => {
+        link.addEventListener("click", function() {
+            menu.classList.remove("activo");
+        });
+    });
+
+    // cerrar al tocar fuera
+    document.addEventListener("click", function(e) {
+        if (!menu.contains(e.target) && !btn.contains(e.target)) {
+            menu.classList.remove("activo");
+        }
+    });
+
 });
 </script>
+
 </body>
 </html>
